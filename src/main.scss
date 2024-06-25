@@ -1,0 +1,87 @@
+
+body {
+    font-family: 'Roboto';
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width:100vw;
+    margin: auto;
+    margin-top: -10rem;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 450px;
+    text-align: center;
+    h1 {
+        color:  #6a0dad;
+        font-weight: 700;
+        font-size: 38px;
+    }
+    form {
+        display: flex;
+        margin-bottom: 20px;
+        #task {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #6a0dad;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        #addBtn {
+            padding: 10px;
+            border: none;
+            background-color: #6a0dad;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            &:hover {
+                background-color: purple;
+            }
+        }
+    }
+    
+#task-list {
+    list-style-type: none;
+    padding: 0;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// .task {
+//     background-color: #e6e6fa;
+//     border: 1px solid purple;
+//     border-radius: 5px;
+//     margin-bottom: 10px;
+//     padding: 10px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+// }
+
+// .task button {
+//     border: none;
+//     background-color: purple;
+//     color: white;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     padding: 5px;
+// }
+
+// .task button:hover {
+//     background-color: #6a0dad;
+// }
