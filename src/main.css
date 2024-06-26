@@ -1,13 +1,13 @@
 body {
   font-family: "Roboto";
-  background-color: #f3f3f3;
+  background-color: #D8BFD8;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
   margin: auto;
-  margin-top: -10rem;
+  margin-top: -5rem;
 }
 
 .container {
@@ -15,12 +15,19 @@ body {
   border-radius: 10px;
   padding: 20px;
   width: 450px;
+  margin: 2rem;
   text-align: center;
 }
 .container h1 {
   color: #6a0dad;
   font-weight: 700;
-  font-size: 38px;
+  font-size: 39px;
+}
+.container h1 img {
+  width: 30px;
+  height: 30px;
+  margin-left: 1rem;
+  margin: auto;
 }
 .container form {
   display: flex;
@@ -42,9 +49,39 @@ body {
   cursor: pointer;
 }
 .container form #addBtn:hover {
-  background-color: purple;
+  background-color: #964dca;
 }
-.container #task-list {
+.container #taskList {
   list-style-type: none;
   padding: 0;
+}
+.container #taskList li {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+.container #taskList input[type=checkbox] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: light-dark(rgb(232, 240, 254));
+  border: 2px solid #6a0dad;
+  outline: none;
+}
+.container #taskList input[type=checkbox]:checked::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #6a0dad;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 50%;
 }
