@@ -1,33 +1,78 @@
+interface Task {
+    id: number;
+    task: string;
+    completed: boolean;
+}
 
-const task = document.getElementById('task') as HTMLInputElement;
+const taskInput = document.getElementById('task') as HTMLInputElement;
 const taskList = document.getElementById('taskList') as HTMLUListElement;
 const form = document.getElementById('form') as HTMLFormElement;
 
-document.addEventListener('DOMContentLoaded', function() {
+let tasks: Task[] = [];
+let taskId = 0;
 
+document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event: Event) {
         event.preventDefault(); // Prevent form from submitting
-
         addTask();
     });
 
     function addTask(): void {
-        if (task.value.trim() === "") {
-            alert("You must write something!");
-        } else {
-            let li = document.createElement('li');
-            let checkbox = document.createElement('input');
+        const taskDescription = taskInput.value.trim();
+        if (taskDescription === "") {
+            alert("Please, write something!");
+            return;
+        }
+
+        const newTask: Task = {
+            id: taskId++,
+            task: taskDescription,
+            completed: false
+        };
+
+        tasks.push(newTask);
+        renderTasks();
+        taskInput.value = ""; 
+    }
+
+    function renderTasks(): void {
+        taskList.innerHTML = ""; // Clear existing tasks
+        tasks.forEach(task => {
+            const li = document.createElement('li');
+            const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
-            let span = document.createElement('span');
-            span.innerHTML = task.value;
+            checkbox.checked = task.completed;
+            checkbox.addEventListener('change', () => toggleTask(task.id));
+
+            const span = document.createElement('span');
+            span.textContent = task.task;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'deleteBtn';
+            deleteButton.innerHTML = '<img src="src/images/delete.png" alt="Delete">';
+            deleteButton.addEventListener('click', () => deleteTask(task.id));
+
+            if (task.completed) {
+                li.classList.add('completed');
+            }
 
             li.appendChild(checkbox);
-            li.appendChild(document.createTextNode(task.value));
-
-            taskList.appendChild(li);
             li.appendChild(span);
-           
-             task.value = ""; // Clear the input field
+            li.appendChild(deleteButton);
+            taskList.appendChild(li);
+        });
+    }
+
+    function toggleTask(taskId: number): void {
+        const task = tasks.find(task => task.id === taskId);
+        if (task) {
+            task.completed = !task.completed;
+            renderTasks();
         }
+    }
+
+    function deleteTask(taskId: number): void {
+        tasks = tasks.filter(task => task.id !== taskId);
+        renderTasks();
     }
 });
