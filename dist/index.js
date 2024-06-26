@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         const newTask = {
             id: taskId++,
-            task: taskDescription,
+            title: taskDescription,
             completed: false
         };
         tasks.push(newTask);
         renderTasks();
-        taskInput.value = ""; // Clear the input field
+        taskInput.value = "";
     }
     function renderTasks() {
         taskList.innerHTML = ""; // Clear existing tasks
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             checkbox.checked = task.completed;
             checkbox.addEventListener('change', () => toggleTask(task.id));
             const span = document.createElement('span');
-            span.textContent = task.task;
+            span.innerText = task.title;
             const deleteButton = document.createElement('button');
             deleteButton.className = 'deleteBtn';
             deleteButton.innerHTML = '<img src="src/images/delete.png" alt="Delete">';

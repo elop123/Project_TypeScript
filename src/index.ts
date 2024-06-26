@@ -1,6 +1,6 @@
 interface Task {
     id: number;
-    task: string;
+    title: string;
     completed: boolean;
 }
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const newTask: Task = {
             id: taskId++,
-            task: taskDescription,
+            title: taskDescription,
             completed: false
         };
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             checkbox.addEventListener('change', () => toggleTask(task.id));
 
             const span = document.createElement('span');
-            span.textContent = task.task;
+            span.innerText = task.title;
 
             const deleteButton = document.createElement('button');
             deleteButton.className = 'deleteBtn';
