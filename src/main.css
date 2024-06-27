@@ -98,6 +98,9 @@ body {
   width: 20px;
   height: 20px;
 }
+.container #taskList button.deleteBtn img:hover {
+  transform: scale(1.2);
+}
 
 @media (min-width: 768px) {
   .container {
