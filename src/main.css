@@ -63,9 +63,6 @@ body {
   font-family: Arial, sans-serif;
   position: relative;
 }
-.container #taskList li .completed {
-  text-decoration: line-through;
-}
 .container #taskList input[type=checkbox] {
   margin-right: 10px;
   width: 20px;
@@ -94,10 +91,28 @@ body {
   border: none;
   cursor: pointer;
   position: absolute;
-  margin-left: 24rem;
+  margin-left: 21.5rem;
   padding: 5px;
 }
 .container #taskList button.deleteBtn img {
   width: 20px;
   height: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 600px;
+    padding: 30px;
+  }
+  .container h1 {
+    font-size: 45px;
+  }
+  .container #taskList button.deleteBtn {
+    margin-left: 34rem;
+  }
+}
+@media (max-width: 750px) {
+  .container #taskList button.deleteBtn {
+    margin-left: 87%;
+  }
 }

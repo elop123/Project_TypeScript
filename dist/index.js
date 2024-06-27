@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const taskDescription = taskInput.value.trim();
         if (taskDescription === "") {
             alert("Please, write something!");
+            return;
         }
         const newTask = {
             id: taskId++,
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         taskInput.value = "";
     }
     function updateTasks() {
-        taskList.innerHTML = ""; // Clear existing tasks
+        taskList.innerHTML = "";
         tasks.forEach(task => {
             const li = document.createElement('li');
             const checkbox = document.createElement('input');
@@ -33,6 +34,12 @@ document.addEventListener('DOMContentLoaded', function () {
             checkbox.addEventListener('change', () => toggleTask(task.id));
             const span = document.createElement('span');
             span.innerText = task.title;
+            if (task.completed) {
+                span.style.textDecoration = "line-through";
+            }
+            else {
+                span.style.textDecoration = "none";
+            }
             const deleteButton = document.createElement('button');
             deleteButton.className = 'deleteBtn';
             deleteButton.innerHTML = '<img src="src/images/delete.png" alt="Delete">';

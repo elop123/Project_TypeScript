@@ -63,10 +63,7 @@ body {
     font-size: 18px;
     font-family: Arial, sans-serif;
     position: relative;
-    .completed  {
-        text-decoration: line-through;
-    
-    }
+   
 }
 input[type="checkbox"] {
     margin-right: 10px; 
@@ -95,7 +92,7 @@ button.deleteBtn {
     border: none;
     cursor: pointer;
     position: absolute;
-    margin-left: 24rem;
+    margin-left: 21.5rem;
     padding: 5px;
     img {
         width: 20px;
@@ -108,6 +105,33 @@ button.deleteBtn {
 }
 
 
+@media  (min-width: 768px) {
+   
+    .container {
+        width: 600px;
+        padding: 30px;
+          h1 {
+        font-size: 45px; 
+    }
+    #taskList{
+        button.deleteBtn {
+                margin-left: 34rem;
+        }
+        }
+    }
+    
+}
+
+@media (max-width:750px){
+    .container{
+        #taskList{
+            button.deleteBtn {
+                margin-left: 87%;
+        }
+        }
+    }
+
+}
 
 
 
