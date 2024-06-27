@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const taskDescription = taskInput.value.trim();
         if (taskDescription === "") {
             alert("Please, write something!");
-            return;
+        
         }
 
         const newTask: Task = {
@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         tasks.push(newTask);
-        renderTasks();
+        updateTasks();
         taskInput.value = ""; 
     }
 
-    function renderTasks(): void {
+    function updateTasks(): void {
         taskList.innerHTML = ""; // Clear existing tasks
         tasks.forEach(task => {
             const li = document.createElement('li');
@@ -67,12 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const task = tasks.find(task => task.id === taskId);
         if (task) {
             task.completed = !task.completed;
-            renderTasks();
+            updateTasks();
         }
     }
 
     function deleteTask(taskId: number): void {
         tasks = tasks.filter(task => task.id !== taskId);
-        renderTasks();
+        updateTasks();
     }
 });

@@ -63,7 +63,7 @@ body {
   font-family: Arial, sans-serif;
   position: relative;
 }
-.container #taskList li li.completed span {
+.container #taskList li .completed {
   text-decoration: line-through;
 }
 .container #taskList input[type=checkbox] {

@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const taskDescription = taskInput.value.trim();
         if (taskDescription === "") {
             alert("Please, write something!");
-            return;
         }
         const newTask = {
             id: taskId++,
@@ -21,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
             completed: false
         };
         tasks.push(newTask);
-        renderTasks();
+        updateTasks();
         taskInput.value = "";
     }
-    function renderTasks() {
+    function updateTasks() {
         taskList.innerHTML = ""; // Clear existing tasks
         tasks.forEach(task => {
             const li = document.createElement('li');
@@ -51,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const task = tasks.find(task => task.id === taskId);
         if (task) {
             task.completed = !task.completed;
-            renderTasks();
+            updateTasks();
         }
     }
     function deleteTask(taskId) {
         tasks = tasks.filter(task => task.id !== taskId);
-        renderTasks();
+        updateTasks();
     }
 });

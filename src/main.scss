@@ -63,8 +63,9 @@ body {
     font-size: 18px;
     font-family: Arial, sans-serif;
     position: relative;
-    li.completed span {
+    .completed  {
         text-decoration: line-through;
+    
     }
 }
 input[type="checkbox"] {
@@ -103,7 +104,8 @@ button.deleteBtn {
 }
 
 
-}}
+}
+}
 
 
 
@@ -117,26 +119,3 @@ button.deleteBtn {
 
 
 
-// .task {
-//     background-color: #e6e6fa;
-//     border: 1px solid purple;
-//     border-radius: 5px;
-//     margin-bottom: 10px;
-//     padding: 10px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-// }
-
-// .task button {
-//     border: none;
-//     background-color: purple;
-//     color: white;
-//     border-radius: 5px;
-//     cursor: pointer;
-//     padding: 5px;
-// }
-
-// .task button:hover {
-//     background-color: #6a0dad;
-// }
